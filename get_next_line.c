@@ -1,7 +1,7 @@
 #include<stdlib.h>
 #include<unistd.h>
 
-char *realloc_line(char *s, int i, int n)
+char *realloc_line(char *s, size_t i, size_t n)
 {
     char *str;
 
@@ -13,7 +13,7 @@ char *realloc_line(char *s, int i, int n)
     return(str);
 }
 
-char *gnl(int fd, int buf_size )
+char *gnl(int fd, size_t buf_size )
 {
     int i = 0;
     size_t *line;
