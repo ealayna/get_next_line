@@ -24,16 +24,18 @@ char *gnl(int fd, size_t buf_size )
     {
         if(line[i++] == '\n')
             break;
-        if (i % buf_size == 0)
-            if(!(line = realloc_line(line, i, i + buf_size)))
+        if(i % buf_size == 0)
+            if (!(line = realloc_line(line, i, i + buf_size)))
                 return(NULL);
     }
-    if (i == 0)
+    if(i == 0)
     {
         free(line);
         return(NULL);
     }
-    if (!(line = realloc_line(line, i, i)))
+    if(line[i - 1] != '\n')
+       i++;
+    if(!(line = realloc_line(line, i, i)))
         return(NULL);
     line[--i] = '\0';
     return(line);
