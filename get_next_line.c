@@ -16,7 +16,7 @@ char *realloc_line(char *s, size_t i, size_t n)
 char *gnl(int fd, size_t buf_size )
 {
     int i = 0;
-    size_t *line;
+    char *line;
 
     if (!(line = malloc(buf_size)))
         return(NULL);
